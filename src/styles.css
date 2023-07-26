@@ -1,0 +1,106 @@
+:root {
+  /* background-image: url("./pexels-daniel-absi-952670.jpg"); */
+  --hue: 200;
+  --saturation: 50%;
+  --foreground-color: hsl(var(--hue), var(--saturation), 75%);
+  --background-color: hsl(var(--hue), var(--saturation), 20%);
+}
+
+body {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+.container {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  /* background-image: url("./pexels-daniel-absi-952670.jpg"); */
+  background-image: linear-gradient(120deg, #8d399c, rgb(43, 94, 153));
+  z-index: 0;
+  box-sizing: border-box;
+  transition: all 0.5s linear;
+}
+
+.scoreCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 5rem;
+  font-weight: bold;
+  color: var(--foreground-color);
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  opacity: 0.1;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.scoreCard > * {
+  padding: 0 0.85rem;
+}
+.scoreCard > :first-child {
+  border-bottom: 0.4rem solid var(--foreground-color);
+}
+
+.ball {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  --ball-x-position: 50;
+  --ball-y-position: 50;
+  position: absolute;
+  background-color: var(--foreground-color);
+  left: calc(var(--ball-x-position) * 1vw);
+  top: calc(var(--ball-y-position) * 1vh);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  width: 2.5vh;
+  height: 2.5vh;
+  z-index: 2;
+  animation: pulse 0.5s linear infinite alternate;
+  overflow: hidden;
+}
+
+.paddle {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  --paddle-position: 42;
+  position: absolute;
+  left: calc(var(--paddle-position) * 1vw);
+  background-color: var(--foreground-color);
+
+  width: 14vw;
+  height: 20px;
+  border-radius: 50px;
+  z-index: 2;
+  font-size: 1rem;
+  text-align: center;
+  color: var(--background-color);
+  font-weight: bolder;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  transition: all 0.03s linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.top {
+  top: 0vw;
+}
+.bottom {
+  bottom: 0.1vw;
+}
+
+@media screen and (max-width: 400px) {
+  .paddle {
+    width: 80px;
+  }
+}
